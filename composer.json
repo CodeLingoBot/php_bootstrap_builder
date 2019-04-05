@@ -10,7 +10,8 @@
     }
   ],
   "require": {
-    "php": ">=5.3.0"
+    "php": ">=5.3.0",
+    "twbs/bootstrap": "3.4.1|4.3.1"
   },
   "require-dev": {
     "composer/composer": "^1.0.2",
