@@ -5,7 +5,7 @@ namespace BootstrapBuilder;
 class Button extends Base
 {
     protected static $required = array('label', 'class');
-    protected static $empty = array('icon', 'type', 'url');
+    protected static $empty = array('icon', 'type', 'url', 'onclick');
 
     public static function build(array $variables)
     {
