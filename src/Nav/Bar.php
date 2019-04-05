@@ -7,9 +7,13 @@ use BootstrapBuilder\Helper;
 
 class Bar extends Base
 {
-    public static function build(array $item_variables){
-        $items = array();
-        foreach($item_variables as $item) array_push($items, Item::build($item));
-        return Helper::include_partial('nav/bar', array('items' => $items));
+    protected static $required = array('items');
+    protected static $empty = array('align');
+
+    public static function build(array $variables){
+        $variables['items'] = array_map(function($item){
+        	return Item::build($item);
+        }, $variables['items']);
+        return Helper::include_partial('nav/bar', $variables);
     }
 }
