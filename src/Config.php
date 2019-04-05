@@ -6,7 +6,9 @@ class Config
 {
     private static $key = 'bootstrap_builder_config';
 
-    public static function init(array $variables){
+    public static function init($composer, array $variables){
+        $json = json_decode(file_get_contents($composer), JSON_OBJECT_AS_ARRAY);
+        self::set('bootstrap_version', $json['require']['twbs/bootstrap']);
         foreach ($variables as $key => $value) self::set($key, $value);
     }
 

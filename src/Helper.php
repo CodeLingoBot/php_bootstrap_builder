@@ -13,9 +13,8 @@ class Helper
             if ($required === 'false') $required = false;
             else if ($required !== 'false') $required = Config::val('default_required', 'false');
         }
-        $json = json_decode(file_get_contents(dirname(__FILE__)."/../../../../composer.json"), JSON_OBJECT_AS_ARRAY);
         ob_start();
-        include 'partials/'.$json['require']['twbs/bootstrap']."/".$partial.".php";
+        include 'partials/'.Config::val('bootstrap_version')."/".$partial.".php";
         return ob_get_clean();
     }
 
